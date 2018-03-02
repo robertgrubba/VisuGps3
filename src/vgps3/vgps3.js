@@ -55,10 +55,10 @@ vgps3.Map = function(container, userOptions, opt_plugins, opt_callback) {
   this.plugins_ = goog.isArray(opt_plugins) ? opt_plugins : [opt_plugins];
 
   /**
-   * @type {goog.debug.Logger}
+   * @type {goog.log.Logger}
    * @private
    */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.Map');
+  this.logger_ = goog.log.getLogger('vgps3.Map');
 
   goog.base(this);
 
@@ -84,7 +84,7 @@ vgps3.Map.prototype.showAbout = function() {
   if (!this.aboutDialog_) {
     this.aboutDialog_ = new goog.ui.Dialog(undefined, true);
     this.aboutDialog_.setTitle('VisuGps v' + vgps3.VERSION);
-    this.aboutDialog_.setContent(vgps3.templates.about());
+    this.aboutDialog_.setSafeHtmlContent(vgps3.templates.about().toSafeHtml());
     this.aboutDialog_.setButtonSet(goog.ui.Dialog.ButtonSet.createOk());
     this.aboutDialog_.setEscapeToCancel(true);
     this.aboutDialog_.getDialogElement();
@@ -103,9 +103,9 @@ vgps3.Map.prototype.showAbout = function() {
  * @private
  */
 vgps3.Map.prototype.loadGoogleMapsApi_ = function(container, userOptions, opt_callback) {
-  var libs = ['geometry'],
-      parameters = new goog.Uri.QueryData(),
-      key = this.getDomainKey(vgps3.Map.GOOGLE_API_KEYS);
+  var libs = ['geometry'];
+  var parameters = new goog.Uri.QueryData();
+  var key = this.getDomainKey(vgps3.Map.GOOGLE_API_KEYS);
 
   goog.array.forEach(this.plugins_, function(plugin) {
     libs = libs.concat(plugin.requireGoogleMapLibs());
@@ -134,8 +134,8 @@ vgps3.Map.prototype.loadGoogleMapsApi_ = function(container, userOptions, opt_ca
  */
 vgps3.Map.prototype.disposeInternal = function() {
   goog.base(this, 'disposeInternal');
-  goog.events.removeAll();
-  google.maps.clearInstanceListeners(this.gMap_);
+  goog.events.removeAll(window);
+  google.maps.event.clearInstanceListeners(this.gMap_);
   goog.dispose(this.aboutDialog_);
   this.aboutDialog_ = null;
   goog.array.forEach(this.plugins_, function(plugin) {

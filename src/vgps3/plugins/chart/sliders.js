@@ -16,6 +16,7 @@
 goog.provide('vgps3.chart.Sliders');
 
 goog.require('goog.dom');
+goog.require('goog.string');
 goog.require('goog.style');
 goog.require('goog.ui.Component');
 goog.require('goog.ui.Slider');
@@ -92,7 +93,7 @@ vgps3.chart.Sliders.prototype.createDom = function() {
   this.title_ = goog.dom.createDom(
       'div',
       'vgps3-sliders-title',
-      goog.dom.htmlToDocumentFragment(vgps3.chart.Sliders.title_)
+      goog.dom.constHtmlToNode(vgps3.chart.Sliders.title_)
       );
   goog.dom.appendChild(this.getElement(), this.title_);
   goog.style.setStyle(this.getElement(), {width: '100%', height: '100%'});
@@ -124,7 +125,7 @@ vgps3.chart.Sliders.prototype.disposeInternal = function() {
 
 
 /**
- * @define {string}
+ * @type {!goog.string.Const}
  * @private
  */
-vgps3.chart.Sliders.title_ = '<h1>VisuGps&nbsp;<i class="fa fa-question-circle"></i></h1>';
+vgps3.chart.Sliders.title_ = goog.string.Const.from('<h1>VisuGps&nbsp;<i class="fa fa-question-circle"></i></h1>');

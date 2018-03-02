@@ -101,7 +101,7 @@ vgps3.airspace.Airspace.prototype.init = function(vgps) {
  */
 vgps3.airspace.Airspace.prototype.fusionClickhandle_ = function(event) {
   google.maps.event.trigger(this.gMap_, 'click', event);
-  event.infoWindowHtml = vgps3.airspace.templates.infoWindow({'row': event.row});
+  event.infoWindowHtml = vgps3.airspace.templates.infoWindow({'row': event.row}).toString();
 };
 
 

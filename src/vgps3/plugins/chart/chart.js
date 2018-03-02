@@ -17,7 +17,7 @@ goog.provide('vgps3.chart.Chart');
 
 goog.require('goog.async.Deferred');
 goog.require('goog.async.Throttle');
-goog.require('goog.debug.Logger');
+goog.require('goog.log.Logger');
 goog.require('goog.debug.Trace');
 goog.require('goog.dom');
 goog.require('goog.dom.ViewportSizeMonitor');
@@ -115,10 +115,10 @@ vgps3.chart.Chart = function(container) {
   this.trackLoaded_ = new goog.async.Deferred(null, this);
 
   /**
-   * @type {goog.debug.Logger}
+   * @type {goog.log.Logger}
    * @private
    */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.chart.Chart');
+  this.logger_ = goog.log.getLogger('vgps3.chart.Chart');
 
   /**
    * @type {!Element}

@@ -24,7 +24,7 @@
   ],
   "type-prefixes-to-strip": [
     "goog.debug.Console",
-    "goog.debug.Logger",
+    "goog.log",
     "goog.debug.Trace",
     "goog.asserts",
     "goog.testing"

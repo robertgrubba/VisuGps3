@@ -20,6 +20,7 @@ goog.require('goog.Timer');
 goog.require('goog.dom');
 goog.require('goog.events.EventHandler');
 goog.require('goog.events.EventType');
+goog.require('goog.html.SafeStyle');
 goog.require('goog.net.Cookies');
 goog.require('goog.net.XhrIo');
 goog.require('goog.style');
@@ -89,10 +90,10 @@ vgps3.doarama.Doarama = function() {
   this.domain_;
 
   /**
-   * @type {goog.debug.Logger} The logger
+   * @type {goog.log.Logger} The logger
    * @private
    */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.doarama.Doarama');
+  this.logger_ = goog.log.getLogger('vgps3.doarama.Doarama');
 
   goog.base(this);
 
@@ -275,7 +276,8 @@ vgps3.doarama.Doarama.prototype.messageHandler_ = function(event) {
 vgps3.doarama.Doarama.prototype.setupDoarama_ = function() {
   var that = this;
   var domHelper = new goog.dom.DomHelper(goog.dom.getOwnerDocument(this.gMap_.getDiv()));
-  this.iframe_ = goog.dom.iframe.createBlank(domHelper, 'position: absolute; top: 0; left: 0; background: white');
+  var ifStyle = goog.html.SafeStyle.create({'position': 'absolute', 'top': '0', 'left': '0', 'background': 'white'});
+  this.iframe_ = goog.dom.iframe.createBlank(domHelper, ifStyle);
   this.iframe_.setAttribute('webkitAllowFullScreen', true);
   this.iframe_.setAttribute('mozAllowFullScreen', true);
   this.iframe_.setAttribute('allowFullScreen', true);

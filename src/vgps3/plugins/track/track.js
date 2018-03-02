@@ -33,8 +33,6 @@ goog.require('vgps3.track.TrackSelectEvent');
 goog.require('vgps3.track.UpdateEvent');
 goog.require('vgps3.track.templates');
 
-
-
 /**
  * @constructor
  * @extends {vgps3.PluginBase}
@@ -99,10 +97,10 @@ vgps3.track.Track = function() {
   this.trackControl_;
 
   /**
-  * @type {!goog.debug.Logger}
+  * @type {goog.log.Logger}
   * @private
   */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.track.Track');
+  this.logger_ = goog.log.getLogger('vgps3.track.Track');
 
   goog.base(this);
 };

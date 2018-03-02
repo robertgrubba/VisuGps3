@@ -22,7 +22,7 @@ goog.require('goog.Timer');
 goog.require('goog.array');
 goog.require('goog.async.Deferred');
 goog.require('goog.color');
-goog.require('goog.debug.Logger');
+goog.require('goog.log.Logger');
 goog.require('goog.debug.Trace');
 goog.require('goog.dom');
 goog.require('goog.dom.DomHelper');
@@ -127,10 +127,10 @@ vgps3.earth.Earth = function() {
   goog.base(this);
 
   /**
-   * @type {goog.debug.Logger} The logger
+   * @type {goog.log.Logger} The logger
    * @private
    */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.earth.Earth');
+  this.logger_ = goog.log.getLogger('vgps3.earth.Earth');
 };
 goog.inherits(vgps3.earth.Earth, vgps3.PluginBase);
 

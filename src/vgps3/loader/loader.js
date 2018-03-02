@@ -39,10 +39,10 @@ vgps3.loader.domLoaded_ = new goog.async.Deferred();
 
 
 /**
- * @type {goog.debug.Logger}
+ * @type {goog.log.Logger}
  * @private
  */
-vgps3.loader.logger_ = goog.debug.Logger.getLogger('vgps3.loader');
+vgps3.loader.logger_ = goog.log.getLogger('vgps3.loader');
 
 
 /**
@@ -79,7 +79,7 @@ vgps3.loader.load = function(module, version, cb, opt_options) {
   }
 
   // Loading or loaded
-  vgps3.loader.modules_[module] = vgps3.loader.modules_[module] || [];
+  vgps3.loader.modules_[module] = vgps3.loader.modules_[module] || {};
 
   if (goog.isDef(vgps3.loader.modules_[module][v]) &&
       goog.iter.some(vgps3.loader.modules_[module][v].getKeyIterator(), function(opts) {
@@ -150,13 +150,18 @@ vgps3.loader.loadHandler_ = function(module, version, optionsMap) {
     goog.Timer.callOnce(cb);
   });
   api['callbacks'] = [];
-  vgps3.loader.modules_[module][version].set(optionsMap, module);
 };
 
 
 /**
  * The modules that have already been loaded.
- * @type {Array.<Array.<goog.structs.Map.<goog.structs.Map, {loaded: boolean, callbacks: Array.<Function>}>>>}
+ * @type {Object<
+ *   string,
+ *   Object<
+ *     string,
+ *     goog.structs.Map.<goog.structs.Map, {loaded: boolean, callbacks: Array.<Function>}>
+ *   >
+ * >}
  * @private
  */
 vgps3.loader.modules_ = [];

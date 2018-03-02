@@ -35,10 +35,10 @@ vgps3.route.Route = function() {
   this.overlays_ = [];
 
   /**
-  * @type {!goog.debug.Logger}
+  * @type {goog.log.Logger}
   * @private
   */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.route.Route');
+  this.logger_ = goog.log.getLogger('vgps3.route.Route');
 
   goog.base(this);
 };

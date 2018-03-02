@@ -72,7 +72,7 @@ vgps3.loadMask.setMessage = function(message, opt_class, opt_open) {
     goog.soy.renderElement(
         vgps3.loadMask.popup_.getElement(),
         vgps3.loadMask.templates.wait,
-        {message: message, 'class': opt_class}
+        {message: message, className: opt_class}
     );
     if (!vgps3.loadMask.popup_.isVisible()) {
       vgps3.loadMask.popup_.setVisible(true);

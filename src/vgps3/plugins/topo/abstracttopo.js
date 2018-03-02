@@ -47,10 +47,10 @@ vgps3.topo.AbstractTopo = function() {
   this.mapType_;
 
   /**
-   * @type {goog.debug.Logger}
+   * @type {goog.log.Logger}
    * @private_
    */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.topo.AbstractTopo');
+  this.logger_ = goog.log.getLogger('vgps3.topo.AbstractTopo');
 
 };
 goog.inherits(vgps3.topo.AbstractTopo, vgps3.PluginBase);

@@ -19,7 +19,7 @@ goog.require('goog.Timer');
 goog.require('goog.Uri');
 goog.require('goog.array');
 goog.require('goog.debug.Console');
-goog.require('goog.debug.Logger');
+goog.require('goog.log.Logger');
 goog.require('goog.events');
 goog.require('goog.events.FileDropHandler');
 goog.require('goog.json');
@@ -76,10 +76,10 @@ vgps3.Viewer = function(mapContainer, chartContainer) {
   };
 
   /**
-  * @type {!goog.debug.Logger}
+  * @type {goog.log.Logger}
   * @private
   */
-  this.logger_ = goog.debug.Logger.getLogger('vgps3.Viewer');
+  this.logger_ = goog.log.getLogger('vgps3.Viewer');
 
   var that = this;
 
