@@ -14,7 +14,7 @@
  * @param fixes
  * @param index
  */
-{template .infoControl}
+{template .infoControl autoescape="deprecated-contextual"}
   <h3><i class="fa fa-info-circle fa-2x"></i></h3>
   <ul>
     <li title="{round($fixes['elev'][$index] / 0.3048)}ft">{$fixes['elev'][$index]}m [hV]</li>
@@ -29,7 +29,7 @@
  * @param date
  * @param pilot
  */
-{template .dateControl}
+{template .dateControl autoescape="deprecated-contextual"}
   <div>
   <i class="fa {if $pilot}fa-user{else}fa-calendar{/if} fa-2x"></i>
   <ul class="pull-left">
